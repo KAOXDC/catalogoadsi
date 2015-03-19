@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'catalogo.apps.ventas', #aplicacion de ventas
     'catalogo.apps.webservices.ws_productos',
     'rest_framework',
+    'gunicorn',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
