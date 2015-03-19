@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+	Lista de Productos
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de Productos</h1>
+	<br>
+	{% if user.is_authenticated %}
+
+	<a href="{% url 'vista_agregar_producto' %}"> Agregar un nuevo producto</a>
+	{% endif %}
+	{% if productos %}
+		{% for p in productos %}
+			<p>
+				Stock : {{ p.stock }}
+				<a href="/producto/{{p.id}}" > Ver </a>
+{% if user.is_authenticated %}
+				<a href="/edit/producto/{{ p.id }}"> Editar</a>
+				<a href="#"> Eliminar</a>
+	{% endif %}
+			</p>
+
+		{% endfor %}
+	{% else %}
+		<h2>No existen productos activos a la venta :( </h2>
+	{% endif %}
+
+	{% if productos %}
+	<div class="pagination">
+
+		<div class="pagination pagination-centered">
+			<ul>
+				<li><a href="/productos/page/1" > << </a></li>
+				{% if productos.has_previous %}
+				<li><a href="/productos/page/{{ productos.previous_page_number }}"> Anterior </a></li>
+				{% else %}
+					<li><a href="#"> Anterior </a></li>
+				{% endif %}
+
+				{% if productos.has_next %}
+					<li><a href="/productos/page/{{ productos.next_page_number }}"> Siguiente </a></li>
+				{% else %}
+					<li><a href="#"> Siguiente </a></li>
+				{% endif %}
+					<li><a href="/productos/page/{{ productos.paginator.num_pages }}"> >> </a></li>
+			</ul>
+		</div>
+	</div>
+			<br>
+			<h4>Pagina {{ productos.number }} de {{ productos.paginator.num_pages }}</h4>
+	{% endif %}
+{% endblock %}
+
