@@ -14,4 +14,4 @@ class marca_serializer(serializers.HyperlinkedModelSerializer):
 class categoria_serializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model  = Categoria
-		fields = ('url','nombre', )
+		fields = ('url','nombre', )   
