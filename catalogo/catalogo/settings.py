@@ -131,8 +131,6 @@ INSTALLED_APPS = (
     'catalogo.apps.webservices.ws_productos',
     'rest_framework',
     'gunicorn',
-    'dajaxice',
-    'dajax',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

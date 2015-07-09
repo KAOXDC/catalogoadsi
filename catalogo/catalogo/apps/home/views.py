@@ -1,7 +1,7 @@
 # Create your views here.
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from catalogo.apps.ventas.models import *
+from catalogo.apps.ventas.models import Producto
 from catalogo.apps.home.forms import contact_form, Login_form
 from django.core.mail import EmailMultiAlternatives # enviamos HTML
 from django.contrib.auth import login, logout, authenticate
@@ -95,8 +95,6 @@ def register_view(request):
 
 def productos_view(request):
 	lista_prod = Producto.objects.filter(status = True) # SELECT * FROM Producto WHERE status = True
-	#cat = Categoria.objects.get(id=2)
-	#lista_prod = Producto.objects.filter(categorias = cat)
 	ctx = {'productos':lista_prod}
 	return render_to_response ('home/productos2.html', ctx, context_instance = RequestContext(request))
 

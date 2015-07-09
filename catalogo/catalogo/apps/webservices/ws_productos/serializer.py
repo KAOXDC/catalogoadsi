@@ -15,4 +15,3 @@ class categoria_serializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model  = Categoria
 		fields = ('url','nombre', )   
-

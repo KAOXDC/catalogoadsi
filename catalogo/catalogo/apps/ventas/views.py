@@ -42,7 +42,7 @@ def edit_product_view(request, id_prod):
 
 
 def del_product_view(request, id_prod):
-	
+	info = "inicializando"
 	try:
 		prod = Producto.objects.get(pk = id_prod)
 		prod.delete()
@@ -55,17 +55,6 @@ def del_product_view(request, id_prod):
 	
 
 
-def del_marca_view(request, id_marca):
-	
-	try:
-		marca = Marca.objects.get(pk = id_marca)
-		marca.delete()
-		info = "Producto Eliminado Correctamente"
-		return HttpResponseRedirect('/productos/')	
-	except:
-		info = "Producto no se puede Eliminar"
-		#return render_to_response('home/productos.html', context_instance = RequestContext(request))
-		return HttpResponseRedirect('/productos/')	
 
 '''
 def add_product_view(request):
