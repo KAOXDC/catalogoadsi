@@ -1,12 +1,14 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<title> {% block title %} Bienvenidos {% endblock %} </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap-responsive.css">
 	<link rel="stylesheet" type="text/css" href="/media/css/excite-bike/jquery-ui-1.10.3.custom.css">
 
-	
+	<script src="/static/dajax/jquery.dajax.core.js"></script>
 	<script src="/media/js/ajax.js"></script>
 	<script src="/media/js/jquery.js"></script>
 	<script src="/media/js/jquery-ui.js"></script>
@@ -29,7 +31,7 @@
 				<li><a href="/productos/page/1">Productos</a></li>
 				<li><a href="{% url 'vista_about' %}">Acerca de ...</a></li>
 				<li><a href="{% url 'vista_contacto' %}">Contacto</a></li>
-				{% if user.is_authenticated %}
+				{% if user.is_authenticated and user.is_staff %}
 					<li><a href="{% url 'vista_logout' %}"> Cerrar Sesion </a></li>
 				{% else %}
 					<li><a href="{% url 'vista_login' %}"> Login </a></li>

@@ -6,6 +6,7 @@ class add_product_form(forms.ModelForm):
 		model   = Producto
 		#se excluye el status por que en el modelo lo ponemos default=True
 		exclude = {'status',} 
+		
 
 
 

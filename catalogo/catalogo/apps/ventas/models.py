@@ -26,7 +26,7 @@ class Producto (models.Model):
 	precio			= models.DecimalField(max_digits = 6, decimal_places = 2)
 	stock			= models.IntegerField()
 	categorias		= models.ManyToManyField(Categoria, null = True, blank = True)
-	marca 			= models.ForeignKey(Marca)
+	marca 			= models.ForeignKey(Marca, on_delete=models.PROTECT)
 	
 	def __unicode__ (self):
 		return self.nombre
